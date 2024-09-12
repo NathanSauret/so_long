@@ -4,13 +4,16 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra -g3 -I -lm $(INCLUDE)
 include ./Src/Libft/Makefile
 
-SRC =	Src/Moves/moves.c	\
-		Src/Map/create_map.c
+SRC =	Src/Exit_error/exit_error.c	\
+		Src/Map_utilities/get_map.c	\
+		Src/Parsing/parsing.c	\
+		Src/Player_utilities/moves.c	\
+		Src/main.c
 OBJ = $(SRC:.c=.o)
 
 all: libft_all $(NAME)
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) main.c $(LIBFT_NAME) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(LIBFT_NAME) -o $(NAME)
 	@clear
 	@echo "Compilation done!"
 
