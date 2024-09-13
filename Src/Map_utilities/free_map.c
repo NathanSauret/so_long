@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:53:40 by nsauret          ###   ########.fr       */
+/*   Created: 2024/09/13 18:15:55 by nsauret           #+#    #+#             */
+/*   Updated: 2024/09/13 18:39:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char *argv[])
+void	free_map(t_map *map)
 {
-	t_map		map;
-	t_player	player;
+	int	i;
 
-	if (argc != 2)
-		exit_error(1, NULL, NULL);
-	get_map(&map, argv[1]);
-	player.x = -1;
-	player.y = -1;
-	free_map(&map);
-	return (0);
+	i = 0;
+	while (i < map->height)
+		free(map->map[i++]);
+	free(map->map);
 }

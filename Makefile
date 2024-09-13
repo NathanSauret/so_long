@@ -5,6 +5,8 @@ CFLAGS	= -Wall -Werror -Wextra -g3 -I -lm $(INCLUDE)
 include ./Src/Libft/Makefile
 
 SRC =	Src/Exit_error/exit_error.c	\
+		Src/Map_utilities/dup_map.c	\
+		Src/Map_utilities/free_map.c	\
 		Src/Map_utilities/get_map.c	\
 		Src/Parsing/are_coins_reachable.c	\
 		Src/Parsing/check_characters.c	\

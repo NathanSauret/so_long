@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:13:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 16:18:39 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/13 18:05:19 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	check_characters(t_map *map)
 	}
 	if (!check_for_cep(counts[0], counts[1], counts[2]))
 		return (0);
-	return (1);
+	return (map->nb_coins = counts[0], 1);
 }
