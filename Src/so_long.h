@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/12 18:34:09 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/13 16:23:39 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,41 @@ typedef struct s_map
 	int		width;
 }	t_map;
 
+// EXIT_ERROR
 // exit_error.c
 void	exit_error(int reason, t_map *map, t_player *player);
 
-// get_mapc.
+
+
+// MAP_UTILITIES
+// get_map.c
 void	get_map(t_map *map, char *map_name);
 
+
+
+// PARSING
+// are_coins_reachable.c
+int		are_coins_reachable(t_map *map);
+
+// check_characters.c
+int		check_characters(t_map *map);
+
+// check_walls.c
+int		check_walls(t_map *map);
+
+// is_exit_reachable.c
+int		is_exit_reachable(t_map *map);
+
+// is_rectangular.c
+int		is_rectangular(t_map *map);
+
 // parsing.c
-int		parsing(t_map *map);
+void	parsing(t_map *map);
+
+
+
+// DEBUG ZONE
+// display_in_terminal.c
+void	display_in_terminal(t_map *map);
 
 #endif

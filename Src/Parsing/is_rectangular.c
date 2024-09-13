@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   is_rectangular.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 17:26:41 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 16:16:42 by nsauret          ###   ########.fr       */
+/*   Created: 2024/09/13 16:12:45 by nsauret           #+#    #+#             */
+/*   Updated: 2024/09/13 16:13:17 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	parsing(t_map *map)
+int	is_rectangular(t_map *map)
 {
-	if (!is_rectangular(map))
+	int	i;
+	int	len;
+
+	i = 0;
+	while (i < map->height)
 	{
-		write(2, "Error: the map is not rectangular\n", 35);
-		exit(1);
+		len = 0;
+		while (map->map[i][len])
+			len++;
+		if (i != (map->height - 1))
+			len--;
+		if (len != map->width)
+			return (0);
+		i++;
 	}
-	if (!check_characters(map))
-		exit(1);
-	if (!check_walls(map))
-		exit(1);
-	if (!is_exit_reachable(map))
-		exit(1);
-	if (!are_coins_reachable(map))
-		exit(1);
+	return (1);
 }

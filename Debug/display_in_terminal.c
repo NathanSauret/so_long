@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   display_in_terminal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 17:26:41 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 16:16:42 by nsauret          ###   ########.fr       */
+/*   Created: 2024/09/13 14:37:53 by nsauret           #+#    #+#             */
+/*   Updated: 2024/09/13 14:45:07 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../Src/so_long.h"
 
-void	parsing(t_map *map)
+void	display_in_terminal(t_map *map)
 {
-	if (!is_rectangular(map))
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < map->height)
 	{
-		write(2, "Error: the map is not rectangular\n", 35);
-		exit(1);
+		j = 0;
+		while (j < map->width)
+		{
+			ft_printf("%c ", map->map[i][j]);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
 	}
-	if (!check_characters(map))
-		exit(1);
-	if (!check_walls(map))
-		exit(1);
-	if (!is_exit_reachable(map))
-		exit(1);
-	if (!are_coins_reachable(map))
-		exit(1);
 }
