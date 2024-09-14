@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   are_coins_reachable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:57 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:51:31 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/15 00:32:06 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	*get_player_location(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (map->map[i][j] == 'p')
+			if (map->map[i][j] == 'P')
 			{
 				p_location[0] = i;
 				p_location[1] = j;
@@ -40,7 +40,7 @@ static int	*get_player_location(t_map *map)
 
 static int	search_for_coins(t_map *map, int i, int j, int coins[1])
 {
-	if (map->map[i][j] == 'c')
+	if (map->map[i][j] == 'C')
 		coins[0] += 1;
 	map->map[i][j] = '1';
 	if ((i - 1) >= 0 && map->map[i - 1][j] != '1')

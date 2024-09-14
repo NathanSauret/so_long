@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:24:56 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/15 01:49:46 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
+// player direction can be u (up), d (down), r (right) or l (left)
 typedef struct s_player
 {
 	int		x;
@@ -35,9 +36,11 @@ typedef struct s_map
 
 // EXIT_ERROR
 // exit_error.c
-void	exit_error(int reason, t_map *map, t_player *player);
+void	exit_error(int reason, t_map *map);
 
 // MAP_UTILITIES
+// display_in_terminal.c
+void	display_in_terminal(t_map *map);
 // dup_map.c
 void	dup_map(t_map *map, t_map *map_copy);
 // free_map.c
@@ -60,8 +63,8 @@ int		is_rectangular(t_map *map);
 // parsing.c
 void	parsing(t_map *map);
 
-// DEBUG ZONE
-// display_in_terminal.c
-void	display_in_terminal(t_map *map);
+// PLAYER_UTILITIES
+// get_player.c
+void	get_player(t_player *player, t_map *map);
 
 #endif

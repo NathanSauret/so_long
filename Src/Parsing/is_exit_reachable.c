@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_exit_reachable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:26 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:34:55 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/15 01:39:49 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	*get_player_location(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (map->map[i][j] == 'p')
+			if (map->map[i][j] == 'P')
 			{
 				p_location[0] = i;
 				p_location[1] = j;
@@ -40,7 +40,7 @@ static int	*get_player_location(t_map *map)
 
 static int	search_for_exit(t_map *map, int i, int j)
 {
-	if (map->map[i][j] == 'e')
+	if (map->map[i][j] == 'E')
 		return (1);
 	map->map[i][j] = '1';
 	if ((i - 1) >= 0 && map->map[i - 1][j] != '1')

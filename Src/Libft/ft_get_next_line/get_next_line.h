@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:05:43 by nsauret           #+#    #+#             */
-/*   Updated: 2024/08/13 17:09:46 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/14 23:58:02 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <unistd.h>
 # include "../libft.h"
 
-char	*get_next_line(int fd);
-char	*free_and_line(char *buffer, char **stache, int sz);
+char	*get_next_line(int fd, int status);
+char	*free_and_line(char *buffer, char **stache, int sz, int status);
 char	*_get_line(char *stache);
 char	*new_line(char *stache);
 

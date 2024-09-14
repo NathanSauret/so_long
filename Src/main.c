@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:53:40 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/15 01:54:07 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	main(int argc, char *argv[])
 	t_player	player;
 
 	if (argc != 2)
-		exit_error(1, NULL, NULL);
+		exit_error(1, NULL);
 	get_map(&map, argv[1]);
-	player.x = -1;
-	player.y = -1;
+	get_player(&player, &map);
+	ft_printf("x: %d | y: %d\n", player.x, player.y);
+	ft_printf("direction: %c\n", player.direction);
 	free_map(&map);
 	return (0);
 }

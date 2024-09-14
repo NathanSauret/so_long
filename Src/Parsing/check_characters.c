@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:13:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/13 18:05:19 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/15 00:30:44 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_character_correct(char c)
 {
-	if (c != '0' && c != '1' && c != 'c' && c != 'e' && c != 'p')
+	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
 	{
 		write(2, "wrong character in map: ", 24);
 		write(2, &c, 1);
@@ -61,9 +61,9 @@ int	check_characters(t_map *map)
 		{
 			if (!is_character_correct(map->map[i][j]))
 				return (0);
-			counts[0] += (map->map[i][j] == 'c');
-			counts[1] += (map->map[i][j] == 'e');
-			counts[2] += (map->map[i][j] == 'p');
+			counts[0] += (map->map[i][j] == 'C');
+			counts[1] += (map->map[i][j] == 'E');
+			counts[2] += (map->map[i][j] == 'P');
 			j++;
 		}
 		i++;

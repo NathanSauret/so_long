@@ -5,6 +5,7 @@ CFLAGS	= -Wall -Werror -Wextra -g3 -I -lm $(INCLUDE)
 include ./Src/Libft/Makefile
 
 SRC =	Src/Exit_error/exit_error.c	\
+		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
 		Src/Map_utilities/free_map.c	\
 		Src/Map_utilities/get_map.c	\
@@ -14,22 +15,14 @@ SRC =	Src/Exit_error/exit_error.c	\
 		Src/Parsing/is_exit_reachable.c	\
 		Src/Parsing/is_rectangular.c	\
 		Src/Parsing/parsing.c	\
+		Src/Player_utilities/get_player.c	\
 		Src/Player_utilities/moves.c	\
 		Src/main.c
 OBJ = $(SRC:.c=.o)
 
-SRC_DEBUG =	Debug/display_in_terminal.c
-OBJ_DEBUG = $(SRC_DEBUG:.c=.o)
-
 all: libft_all $(NAME)
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) $(LIBFT_NAME) -o $(NAME)
-	@clear
-	@echo "Compilation done!"
-
-debug: libft_all $(NAME)
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) $(SRC_DEBUG) $(LIBFT_NAME) -o $(NAME)
 	@clear
 	@echo "Compilation done!"
 
