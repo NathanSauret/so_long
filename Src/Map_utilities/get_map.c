@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/15 01:50:44 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/16 17:43:28 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	get_map_width(char *map_name)
 
 	fd = open(map_name, O_RDONLY);
 	if (!fd)
-		exit_error(0, NULL);
+		exit_error(0, NULL, NULL);
 	line = get_next_line(fd, 1);
 	len = 0;
 	while (line[len] && line[len] != '\n')
@@ -80,10 +80,10 @@ static char	**get_the_map(char *map_name, int height)
 
 	fd = open(map_name, O_RDONLY);
 	if (!fd)
-		exit_error(0, NULL);
+		exit_error(0, NULL, NULL);
 	the_map = malloc(sizeof(char *) * height);
 	if (!the_map)
-		exit_error(0, NULL);
+		exit_error(0, NULL, NULL);
 	i = 0;
 	while (i < height)
 	{

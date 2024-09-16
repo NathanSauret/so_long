@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 01:36:36 by nathan            #+#    #+#             */
-/*   Updated: 2024/09/15 01:49:53 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/16 17:42:38 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	get_player(t_player *player, t_map *map)
 
 	player_location = get_player_location(map);
 	if (!player_location)
-		exit_error(1, map);
+		exit_error(1, map, NULL);
 	player->y = player_location[0];
 	player->x = player_location[1];
 	free(player_location);

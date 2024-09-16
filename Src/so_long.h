@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/15 01:49:46 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/16 17:41:01 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "Libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include <math.h>
 # include <stdio.h>
 # include <fcntl.h>
@@ -34,9 +35,31 @@ typedef struct s_map
 	int		nb_coins;
 }	t_map;
 
+typedef struct s_win
+{
+	void	*mlx;
+	void	*mlx_win;
+	int		height;
+	int		width;
+	int		tile_size;
+}	t_win;
+
+typedef struct s_all
+{
+	t_win		*win;
+	t_map		*map;
+	t_player	*player;
+	void		**textures;
+}	t_all;
+
+// ALL_UTILITIES
+// set_all.c
+void	set_all(t_all *all, t_win *win, t_map *map, t_player *player);
+
 // EXIT_ERROR
 // exit_error.c
-void	exit_error(int reason, t_map *map);
+void	free_structs(t_map *map, t_all *all);
+void	exit_error(int reason, t_map *map, t_all *all);
 
 // MAP_UTILITIES
 // display_in_terminal.c
@@ -66,5 +89,9 @@ void	parsing(t_map *map);
 // PLAYER_UTILITIES
 // get_player.c
 void	get_player(t_player *player, t_map *map);
+
+// WINDOW
+// init_window.c
+void	init_window(t_win *win, t_map *map);
 
 #endif

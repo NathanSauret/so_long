@@ -4,7 +4,12 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra -g3 -I -lm $(INCLUDE)
 include ./Src/Libft/Makefile
 
-SRC =	Src/Exit_error/exit_error.c	\
+MINILIBX_PATH =./minilibx-linux
+MINIFLAGS=-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
+MINILIBX= $(MINILIBX_PATH)/libmlx.a
+
+SRC =	Src/All_utilities/set_all.c	\
+		Src/Exit_error/exit_error.c	\
 		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
 		Src/Map_utilities/free_map.c	\
@@ -17,14 +22,18 @@ SRC =	Src/Exit_error/exit_error.c	\
 		Src/Parsing/parsing.c	\
 		Src/Player_utilities/get_player.c	\
 		Src/Player_utilities/moves.c	\
+		Src/Window_utilities/init_window.c	\
 		Src/main.c
 OBJ = $(SRC:.c=.o)
 
-all: libft_all $(NAME)
+all: libft_all $(MINILIBX) $(NAME)
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) $(LIBFT_NAME) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(MINIFLAGS) $(LIBFT_NAME) -o $(NAME)
 	@clear
 	@echo "Compilation done!"
+
+$(MINILIBX):
+	@make -C $(MINILIBX_PATH)
 
 clean: libft_clean
 	@rm -f $(LIBFT_OBJ) $(OBJ)
