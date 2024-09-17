@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_in_terminal.c                              :+:      :+:    :+:   */
+/*   destroy_window.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 14:37:53 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/17 12:32:21 by nsauret          ###   ########.fr       */
+/*   Created: 2024/09/17 13:45:35 by nsauret           #+#    #+#             */
+/*   Updated: 2024/09/17 14:35:22 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	display_in_terminal(t_map *map)
+int	destroy_window(t_all *all)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c ", map->map[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
+	mlx_destroy_window(all->win->mlx, all->win->win);
+	mlx_destroy_display(all->win->mlx);
+	return (1);
 }

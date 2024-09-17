@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:35:05 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/16 17:42:17 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/17 15:16:18 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,33 @@
 
 // Reasons:
 // -1. No message
-// 0. Basic Error
-// 1. Wrong number of arguments
+//  0. Basic Error
 
-void	free_structs(t_map *map, t_all *all)
+void	free_structs(t_all *all)
 {
 	int	i;
 
-	if (map)
-		free_map(map);
-	if (all && all->textures)
+	if (all->map)
+		free_map(all->map);
+	if (all->win)
+		free(all->win->mlx);
+	if (all->tex)
 	{
 		i = 0;
-		while (all->textures[i])
-			free(all->textures[i++]);
+		while (all->tex->textures[i])
+			free(all->tex->textures[i++]);
+		free(all->tex->textures);
+		i = 0;
+		while (all->tex->paths[i])
+			free(all->tex->paths[i++]);
+		free(all->tex->paths);
 	}
 }
 
-void	exit_error(int reason, t_map *map, t_all *all)
+void	exit_error(int reason, t_all *all)
 {
 	if (reason == 0)
 		write(2, "Error\n", 7);
-	else if (reason == 1)
-		write(2, "Error: The program needs one argument: map file\n", 49);
-	free_structs(map, all);
+	free_structs(all);
 	exit(1);
 }

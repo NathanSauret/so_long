@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/16 17:43:28 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:43:40 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	get_map_width(char *map_name)
 
 	fd = open(map_name, O_RDONLY);
 	if (!fd)
-		exit_error(0, NULL, NULL);
+		exit_error(0, NULL);
 	line = get_next_line(fd, 1);
 	len = 0;
 	while (line[len] && line[len] != '\n')
@@ -80,10 +80,10 @@ static char	**get_the_map(char *map_name, int height)
 
 	fd = open(map_name, O_RDONLY);
 	if (!fd)
-		exit_error(0, NULL, NULL);
+		exit_error(0, NULL);
 	the_map = malloc(sizeof(char *) * height);
 	if (!the_map)
-		exit_error(0, NULL, NULL);
+		exit_error(0, NULL);
 	i = 0;
 	while (i < height)
 	{
@@ -95,10 +95,11 @@ static char	**get_the_map(char *map_name, int height)
 	return (the_map);
 }
 
-void	get_map(t_map *map, char *map_name)
+void	get_map(t_all *all, t_map *map, char *map_name)
 {
 	char	*extension;
 
+	all->map = map;
 	extension = get_file_extension(map_name);
 	if (!extension
 		|| !ft_strnstr(extension, ".ber", ft_strlen(map_name))
@@ -110,5 +111,5 @@ void	get_map(t_map *map, char *map_name)
 	map->height = get_map_height(map_name);
 	map->map = get_the_map(map_name, map->height);
 	map->width = get_map_width(map_name);
-	parsing(map);
+	parsing(all);
 }

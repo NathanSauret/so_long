@@ -8,7 +8,9 @@ MINILIBX_PATH =./minilibx-linux
 MINIFLAGS=-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 MINILIBX= $(MINILIBX_PATH)/libmlx.a
 
-SRC =	Src/All_utilities/set_all.c	\
+SRC =	Src/Controls/moves.c	\
+		Src/Controls/on_press.c	\
+		Src/Display/display.c	\
 		Src/Exit_error/exit_error.c	\
 		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
@@ -22,6 +24,8 @@ SRC =	Src/All_utilities/set_all.c	\
 		Src/Parsing/parsing.c	\
 		Src/Player_utilities/get_player.c	\
 		Src/Player_utilities/moves.c	\
+		Src/Textures_utilities/get_textures.c	\
+		Src/Window_utilities/destroy_window.c	\
 		Src/Window_utilities/init_window.c	\
 		Src/main.c
 OBJ = $(SRC:.c=.o)
