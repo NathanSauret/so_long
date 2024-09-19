@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/17 15:43:42 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/19 12:05:33 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	get_player(t_all *all, t_player *player);
 
 // TEXTURES_UTILITIES
 // get_textures.c
-void	get_textures(t_all *all, t_textures *tex);
+void	get_textures(t_all *all, t_textures *tex, t_win *win);
 
 // WINDOW
 // init_window.c

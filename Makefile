@@ -5,7 +5,7 @@ CFLAGS	= -Wall -Werror -Wextra -g3 -I -lm $(INCLUDE)
 include ./Src/Libft/Makefile
 
 MINILIBX_PATH =./minilibx-linux
-MINIFLAGS=-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
+MINIFLAGS=-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -opengl -lm -lbsd
 MINILIBX= $(MINILIBX_PATH)/libmlx.a
 
 SRC =	Src/Controls/moves.c	\

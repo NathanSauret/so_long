@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:57:24 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/17 14:07:03 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/19 12:23:07 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ int	display_using_pixels(t_all *all)
 			else if (map->map[i][j] == 'P')
 				color_tile(all, j, i, 0x0000FF);
 			else if (map->map[i][j] == 'E')
-				color_tile(all, j, i, 0x00FF00);
+			{
+				if (all->map->nb_coins == 0)
+					color_tile(all, j, i, 0x00FF00);
+				else
+					color_tile(all, j, i, 0xFF0000);
+			}
 			else if (map->map[i][j] == 'C')
 				color_tile(all, j, i, 0xFFFF00);
 			j++;
@@ -69,16 +74,11 @@ int	display(t_all *all)
 	t_map	*map;
 	t_win	*win;
 	void	**textures;
-	int		i;
+	// int		i;
 
 	map = all->map;
 	win = all->win;
 	textures = all->tex->textures;
-	i = 0;
-	while (i < all->tex->nb_textures)
-	{
-		mlx_put_image_to_window(win->mlx, win->win, &textures[i], i, 0);
-		i++;
-	}
+	mlx_put_image_to_window(win->mlx, win->win, &textures[0], 0, 0);
 	return (1);
 }
