@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   is_exit_reachable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:26 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/15 01:39:49 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/19 17:15:28 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int	*get_player_location(t_map *map)
+static int	*get_player_location(t_map map)
 {
 	int	i;
 	int	j;
@@ -20,12 +20,12 @@ static int	*get_player_location(t_map *map)
 
 	p_location = malloc(sizeof(int) * 2 + 1);
 	i = 0;
-	while (i < map->height)
+	while (i < map.height)
 	{
 		j = 0;
-		while (j < map->width)
+		while (j < map.width)
 		{
-			if (map->map[i][j] == 'P')
+			if (map.map[i][j] == 'P')
 			{
 				p_location[0] = i;
 				p_location[1] = j;
@@ -66,14 +66,14 @@ static int	search_for_exit(t_map *map, int i, int j)
 	return (0);
 }
 
-int	is_exit_reachable(t_map *map)
+int	is_exit_reachable(t_map map)
 {
 	int		*p_location;
 	t_map	map_copy;
 	int		res;
 
 	dup_map(map, &map_copy);
-	p_location = get_player_location(&map_copy);
+	p_location = get_player_location(map_copy);
 	if (search_for_exit(&map_copy, p_location[0], p_location[1]))
 		res = 1;
 	else

@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:54:18 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 12:01:06 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/19 17:08:58 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	move_up(t_all *all)
 	int		px;
 	int		py;
 
-	map = all->map;
+	map = &all->map;
 	px = all->player->x;
 	py = all->player->y;
 	all->player->direction = 'u';
@@ -47,7 +47,7 @@ static void	move_down(t_all *all)
 	int		px;
 	int		py;
 
-	map = all->map;
+	map = &all->map;
 	px = all->player->x;
 	py = all->player->y;
 	all->player->direction = 'd';
@@ -76,7 +76,7 @@ static void	move_left(t_all *all)
 	int		px;
 	int		py;
 
-	map = all->map;
+	map = &all->map;
 	px = all->player->x;
 	py = all->player->y;
 	all->player->direction = 'l';
@@ -105,7 +105,7 @@ static void	move_right(t_all *all)
 	int		px;
 	int		py;
 
-	map = all->map;
+	map = &all->map;
 	px = all->player->x;
 	py = all->player->y;
 	all->player->direction = 'r';

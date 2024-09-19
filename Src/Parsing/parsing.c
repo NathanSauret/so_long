@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:26:41 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/17 12:23:46 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/19 17:20:47 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parsing(t_all *all)
 {
-	t_map	*map;
+	t_map	map;
 
 	map = all->map;
 	if (!is_rectangular(map))

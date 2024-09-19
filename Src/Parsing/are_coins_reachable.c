@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   are_coins_reachable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:57 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/15 00:32:06 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/19 17:20:43 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,46 +38,45 @@ static int	*get_player_location(t_map *map)
 	return (NULL);
 }
 
-static int	search_for_coins(t_map *map, int i, int j, int coins[1])
+static int	search_for_coins(t_map *map, int i, int j)
 {
 	if (map->map[i][j] == 'C')
-		coins[0] += 1;
+		map->nb_coins -= 1;
 	map->map[i][j] = '1';
 	if ((i - 1) >= 0 && map->map[i - 1][j] != '1')
 	{
-		if (search_for_coins(map, i - 1, j, coins) == 1)
+		if (search_for_coins(map, i - 1, j) == 1)
 			return (1);
 	}
 	if ((i + 1) >= 0 && map->map[i + 1][j] != '1')
 	{
-		if (search_for_coins(map, i + 1, j, coins) == 1)
+		if (search_for_coins(map, i + 1, j) == 1)
 			return (1);
 	}
 	if ((j - 1) >= 0 && map->map[i][j - 1] != '1')
 	{
-		if (search_for_coins(map, i, j - 1, coins) == 1)
+		if (search_for_coins(map, i, j - 1) == 1)
 			return (1);
 	}
 	if ((j + 1) >= 0 && map->map[i][j + 1] != '1')
 	{
-		if (search_for_coins(map, i, j + 1, coins) == 1)
+		if (search_for_coins(map, i, j + 1) == 1)
 			return (1);
 	}
 	return (0);
 }
 
-int	are_coins_reachable(t_map *map)
+int	are_coins_reachable(t_map map)
 {
 	int		*p_location;
 	t_map	map_copy;
-	int		c[1];
 	int		res;
 
 	dup_map(map, &map_copy);
+	ft_printf("%d\n", map.nb_coins);
 	p_location = get_player_location(&map_copy);
-	c[0] = 0;
-	search_for_coins(&map_copy, p_location[0], p_location[1], c);
-	if (c[0] == map->nb_coins)
+	search_for_coins(&map_copy, p_location[0], p_location[1]);
+	if (map_copy.nb_coins == 0)
 		res = 1;
 	else
 		res = 0;

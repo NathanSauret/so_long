@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 12:05:33 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/19 17:10:01 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_player
 	char	direction;
 	int		is_on_exit;
 	int		nb_move;
+	int		frame;
 }	t_player;
 
 typedef struct s_map
@@ -51,17 +52,45 @@ typedef struct s_win
 
 typedef struct s_textures
 {
-	int		nb_textures;
-	char	**paths;
-	void	**textures;
+	char				*wall_path;
+	void				*wall;
+	char				*bg_path;
+	void				*bg;
+	char				*eopen_path;
+	void				*eopen;
+	char				*eclose_path;
+	void				*eclose;
+	char				*coin_path;
+	void				*coin;
 }	t_textures;
+
+typedef struct s_player_sprites
+{
+	char	*u1_path;
+	void	*u1;
+	char	*u2_path;
+	void	*u2;
+	char	*d1_path;
+	void	*d1;
+	char	*d2_path;
+	void	*d2;
+	char	*l1_path;
+	void	*l1;
+	char	*l2_path;
+	void	*l2;
+	char	*r1_path;
+	void	*r1;
+	char	*r2_path;
+	void	*r2;
+}	t_player_sprites;
 
 typedef struct s_all
 {
-	t_map		*map;
-	t_player	*player;
-	t_win		*win;
-	t_textures	*tex;
+	t_map				map;
+	t_player			*player;
+	t_win				*win;
+	t_textures			*tex;
+	t_player_sprites	*ps;
 }	t_all;
 
 // CONTROLS
@@ -82,26 +111,26 @@ void	exit_error(int reason, t_all *all);
 
 // MAP_UTILITIES
 // display_in_terminal.c
-void	display_in_terminal(t_map *map);
+void	display_in_terminal(t_map map);
 // dup_map.c
-void	dup_map(t_map *map, t_map *map_copy);
+void	dup_map(t_map map, t_map *map_copy);
 // free_map.c
 void	free_map(t_map *map);
 // get_map.c
-void	get_map(t_all *all, t_map	*map, char *map_name);
+void	get_map(t_all *all, char *map_name);
 
 
 // PARSING
 // are_coins_reachable.c
-int		are_coins_reachable(t_map *map);
+int		are_coins_reachable(t_map map);
 // check_characters.c
-int		check_characters(t_map *map);
+int		check_characters(t_map map);
 // check_walls.c
-int		check_walls(t_map *map);
+int		check_walls(t_map map);
 // is_exit_reachable.c
-int		is_exit_reachable(t_map *map);
+int		is_exit_reachable(t_map map);
 // is_rectangular.c
-int		is_rectangular(t_map *map);
+int		is_rectangular(t_map map);
 // parsing.c
 void	parsing(t_all *all);
 
