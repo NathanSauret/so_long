@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:13:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 16:55:07 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 12:27:54 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	check_for_cep(int c_count, int e_count, int p_count)
 	return (1);
 }
 
-int	check_characters(t_map map)
+int	check_characters(t_all *all)
 {
 	int	i;
 	int	j;
@@ -54,21 +54,21 @@ int	check_characters(t_map map)
 	counts[1] = 0;
 	counts[2] = 0;
 	i = 0;
-	while (i < map.height)
+	while (i < all->map.height)
 	{
 		j = 0;
-		while (j < map.width)
+		while (j < all->map.width)
 		{
-			if (!is_character_correct(map.map[i][j]))
+			if (!is_character_correct(all->map.map[i][j]))
 				return (0);
-			counts[0] += (map.map[i][j] == 'C');
-			counts[1] += (map.map[i][j] == 'E');
-			counts[2] += (map.map[i][j] == 'P');
+			counts[0] += (all->map.map[i][j] == 'C');
+			counts[1] += (all->map.map[i][j] == 'E');
+			counts[2] += (all->map.map[i][j] == 'P');
 			j++;
 		}
 		i++;
 	}
 	if (!check_for_cep(counts[0], counts[1], counts[2]))
 		return (0);
-	return (map.nb_coins = counts[0], 1);
+	return (all->map.nb_coins = counts[0], 1);
 }

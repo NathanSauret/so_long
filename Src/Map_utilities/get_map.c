@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 16:49:24 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 16:51:07 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,6 @@ static char	*get_file_extension(char *file_name)
 		file_name++;
 	}
 	return (NULL);
-}
-
-static int	get_map_height(char *map_name)
-{
-	int		fd;
-	int		nb_lines;
-	char	*line;
-
-	fd = open(map_name, O_RDONLY);
-	if (fd == -1)
-	{
-		perror(map_name);
-		exit(1);
-	}
-	nb_lines = 0;
-	line = get_next_line(fd, 1);
-	if (ft_strlen(line) == 0)
-	{
-		write(2, "Error: The map is empty\n", 25);
-		exit(1);
-	}
-	while (line)
-	{
-		nb_lines++;
-		free(line);
-		line = get_next_line(fd, 1);
-	}
-	close(fd);
-	return (nb_lines);
 }
 
 static int	get_map_width(char *map_name)
@@ -105,10 +76,11 @@ void	get_map(t_all *all, char *map_name)
 		|| ft_strlen(extension) != 4)
 	{
 		write(2, "Error: The map extension must be '.ber'\n", 41);
-		exit(1);
+		exit_error(-1, all);
 	}
-	all->map.height = get_map_height(map_name);
+	all->map.height = get_map_height(map_name, all);
 	all->map.map = get_the_map(map_name, all->map.height);
 	all->map.width = get_map_width(map_name);
+	all->map.nb_coins = get_nb_coins(all);
 	parsing(all);
 }

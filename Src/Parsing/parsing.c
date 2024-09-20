@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:26:41 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 17:20:47 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 12:34:01 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 void	parsing(t_all *all)
 {
-	t_map	map;
-
-	map = all->map;
-	if (!is_rectangular(map))
+	if (!is_rectangular(all))
 	{
 		write(2, "Error: The map must be rectangular\n", 35);
 		exit_error(-1, all);
 	}
-	if (!check_characters(map))
+	if (!check_characters(all))
 		exit_error(-1, all);
-	if (!check_walls(map))
+	if (!check_walls(all))
 	{
 		write(2, "Error: The map must be surrounded by walls\n", 44);
 		exit_error(-1, all);
 	}
-	if (!is_exit_reachable(map))
+	if (!is_exit_reachable(all))
 	{
 		write(2, "Error: The exit must be reachable\n", 35);
 		exit_error(-1, all);
 	}
-	if (!are_coins_reachable(map))
+	if (!are_coins_reachable(all))
 	{
 		write(2, "Error: All the collectibles must be reachable\n", 47);
 		exit_error(-1, all);

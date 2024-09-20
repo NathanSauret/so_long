@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   are_coins_reachable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:57 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 17:20:43 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 15:03:16 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,13 @@ static int	search_for_coins(t_map *map, int i, int j)
 	return (0);
 }
 
-int	are_coins_reachable(t_map map)
+int	are_coins_reachable(t_all *all)
 {
 	int		*p_location;
 	t_map	map_copy;
 	int		res;
 
-	dup_map(map, &map_copy);
-	ft_printf("%d\n", map.nb_coins);
+	dup_map(all->map, &map_copy);
 	p_location = get_player_location(&map_copy);
 	search_for_coins(&map_copy, p_location[0], p_location[1]);
 	if (map_copy.nb_coins == 0)

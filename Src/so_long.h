@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 17:10:01 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 17:11:30 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,41 @@ typedef struct s_win
 	int		tile_size;
 }	t_win;
 
+typedef struct s_walls
+{
+	char	*ul_path;
+	void	*ul;
+	char	*u_path;
+	void	*u;
+	char	*ur_path;
+	void	*ur;
+	char	*l_path;
+	void	*l;
+	char	*r_path;
+	void	*r;
+	char	*dl_path;
+	void	*dl;
+	char	*d_path;
+	void	*d;
+	char	*dr_path;
+	void	*dr;
+	char	*round_path;
+	void	*round;
+	char	*square_path;
+	void	*square;
+}	t_walls;
+
 typedef struct s_textures
 {
-	char				*wall_path;
-	void				*wall;
-	char				*bg_path;
-	void				*bg;
-	char				*eopen_path;
-	void				*eopen;
-	char				*eclose_path;
-	void				*eclose;
-	char				*coin_path;
-	void				*coin;
+	t_walls	walls;
+	char	*bg_path;
+	void	*bg;
+	char	*eopen_path;
+	void	*eopen;
+	char	*eclose_path;
+	void	*eclose;
+	char	*coin_path;
+	void	*coin;
 }	t_textures;
 
 typedef struct s_player_sprites
@@ -87,10 +110,10 @@ typedef struct s_player_sprites
 typedef struct s_all
 {
 	t_map				map;
-	t_player			*player;
-	t_win				*win;
-	t_textures			*tex;
-	t_player_sprites	*ps;
+	t_player			player;
+	t_win				win;
+	t_textures			tex;
+	t_player_sprites	ps;
 }	t_all;
 
 // CONTROLS
@@ -103,8 +126,14 @@ int		on_keypress(int keysym, t_all *all);
 // display.c
 int		display_using_pixels(t_all *all);
 int		display(t_all *all);
+// get_wall.c
+void	*get_wall(t_all *all, int i, int j);
 
 // EXIT_ERROR
+// delete_sprites.c
+void	delete_sprites(t_all *all);
+// delete_textures.c
+void	delete_textures(t_all *all);
 // exit_error.c
 void	free_structs(t_all *all);
 void	exit_error(int reason, t_all *all);
@@ -116,35 +145,43 @@ void	display_in_terminal(t_map map);
 void	dup_map(t_map map, t_map *map_copy);
 // free_map.c
 void	free_map(t_map *map);
+// get_map_height.c
+int		get_map_height(char *map_name, t_all *all);
 // get_map.c
 void	get_map(t_all *all, char *map_name);
+// get_nb_coins.c
+int		get_nb_coins(t_all *all);
 
 
 // PARSING
 // are_coins_reachable.c
-int		are_coins_reachable(t_map map);
+int		are_coins_reachable(t_all *all);
 // check_characters.c
-int		check_characters(t_map map);
+int		check_characters(t_all *all);
 // check_walls.c
-int		check_walls(t_map map);
+int		check_walls(t_all *all);
 // is_exit_reachable.c
-int		is_exit_reachable(t_map map);
+int		is_exit_reachable(t_all *all);
 // is_rectangular.c
-int		is_rectangular(t_map map);
+int		is_rectangular(t_all *all);
 // parsing.c
 void	parsing(t_all *all);
 
 // PLAYER_UTILITIES
 // get_player.c
-void	get_player(t_all *all, t_player *player);
+void	get_player(t_all *all);
 
 // TEXTURES_UTILITIES
+// get_player_sprites.c
+void	get_player_sprites(t_all *all);
 // get_textures.c
-void	get_textures(t_all *all, t_textures *tex, t_win *win);
+void	set_textures_struct(t_all *all);
+void	set_player_sprites_struct(t_all *all);
+void	get_textures(t_all *all);
 
 // WINDOW
 // init_window.c
-void	init_window(t_all *all, t_win *win);
+void	init_window(t_all *all);
 // destroy_window.c
 int		destroy_window(t_all *all);
 

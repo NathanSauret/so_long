@@ -11,11 +11,16 @@ MINILIBX= $(MINILIBX_PATH)/libmlx.a
 SRC =	Src/Controls/moves.c	\
 		Src/Controls/on_press.c	\
 		Src/Display/display.c	\
+		Src/Display/get_wall.c	\
+		Src/Exit_error/delete_sprites.c	\
+		Src/Exit_error/delete_textures.c	\
 		Src/Exit_error/exit_error.c	\
 		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
 		Src/Map_utilities/free_map.c	\
+		Src/Map_utilities/get_map_height.c	\
 		Src/Map_utilities/get_map.c	\
+		Src/Map_utilities/get_nb_coins.c	\
 		Src/Parsing/are_coins_reachable.c	\
 		Src/Parsing/check_characters.c	\
 		Src/Parsing/check_walls.c	\
@@ -24,6 +29,7 @@ SRC =	Src/Controls/moves.c	\
 		Src/Parsing/parsing.c	\
 		Src/Player_utilities/get_player.c	\
 		Src/Player_utilities/moves.c	\
+		Src/Textures_utilities/get_player_sprites.c	\
 		Src/Textures_utilities/get_textures.c	\
 		Src/Window_utilities/destroy_window.c	\
 		Src/Window_utilities/init_window.c	\

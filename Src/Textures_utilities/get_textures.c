@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:30:31 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 16:45:32 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 17:11:18 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 static void	*load_image_into_struct(t_all *all, char *path)
 {
 	int			tsz;
-	t_textures	*tex;
 	void		*image;
 
-	tsz = all->win->tile_size;
-	tex = all->tex;
-	image = mlx_xpm_file_to_image(all->win->mlx, path, &tsz, &tsz);
+	tsz = all->win.tile_size;
+	image = mlx_xpm_file_to_image(all->win.mlx, path, &tsz, &tsz);
 	if (!image)
 	{
 		write(2, "Error: Texture not found: ", 27);
@@ -31,31 +29,60 @@ static void	*load_image_into_struct(t_all *all, char *path)
 	return (image);
 }
 
-static void	set_textures_struct(t_all *all)
+static void	set_wall_textures(t_all *all)
 {
-	t_textures	*tex;
-
-	tex = all->tex;
-	tex->wall_path = "Textures/wall.xpm";
-	tex->wall = NULL;
-	tex->bg_path = "Textures/background.xpm";
-	tex->bg = NULL;
-	tex->eopen_path = "Textures/exit_green.xpm";
-	tex->eopen = NULL;
-	tex->eclose_path = "Textures/exit_red.xpm";
-	tex->eclose = NULL;
-	tex->coin_path = "Textures/coin.xpm";
-	tex->coin = NULL;
+	all->tex.walls.ul_path = "Textures/ul.xpm";
+	all->tex.walls.ul = NULL;
+	all->tex.walls.u_path = "Textures/u.xpm";
+	all->tex.walls.u = NULL;
+	all->tex.walls.ur_path = "Textures/ur.xpm";
+	all->tex.walls.ur = NULL;
+	all->tex.walls.l_path = "Textures/l.xpm";
+	all->tex.walls.l = NULL;
+	all->tex.walls.r_path = "Textures/r.xpm";
+	all->tex.walls.r = NULL;
+	all->tex.walls.dl_path = "Textures/dl.xpm";
+	all->tex.walls.dl = NULL;
+	all->tex.walls.d_path = "Textures/d.xpm";
+	all->tex.walls.d = NULL;
+	all->tex.walls.dr_path = "Textures/dr.xpm";
+	all->tex.walls.dr = NULL;
+	all->tex.walls.round_path = "Textures/round.xpm";
+	all->tex.walls.round = NULL;
+	all->tex.walls.square_path = "Textures/square.xpm";
+	all->tex.walls.square = NULL;
 }
 
-void	get_textures(t_all *all, t_textures *tex, t_win *win)
+void	set_textures_struct(t_all *all)
 {
-	all->tex = tex;
-	all->win = win;
-	set_textures_struct(all);
-	tex->wall = load_image_into_struct(all, tex->wall_path);
-	tex->bg = load_image_into_struct(all, tex->bg_path);
-	tex->eopen = load_image_into_struct(all, tex->eopen_path);
-	tex->eclose = load_image_into_struct(all, tex->eclose_path);
-	tex->coin = load_image_into_struct(all, tex->coin_path);
+	all->tex.bg_path = "Textures/background.xpm";
+	all->tex.bg = NULL;
+	all->tex.eopen_path = "Textures/exit_green.xpm";
+	all->tex.eopen = NULL;
+	all->tex.eclose_path = "Textures/exit_red.xpm";
+	all->tex.eclose = NULL;
+	all->tex.coin_path = "Textures/coin.xpm";
+	all->tex.coin = NULL;
+	set_wall_textures(all);
+}
+
+void	get_textures(t_all *all)
+{
+	t_walls	*walls;
+
+	walls = &all->tex.walls;
+	walls->ul = load_image_into_struct(all, walls->ul_path);
+	walls->u = load_image_into_struct(all, walls->u_path);
+	walls->ur = load_image_into_struct(all, walls->ur_path);
+	walls->l = load_image_into_struct(all, walls->l_path);
+	walls->r = load_image_into_struct(all, walls->r_path);
+	walls->dl = load_image_into_struct(all, walls->dl_path);
+	walls->d = load_image_into_struct(all, walls->d_path);
+	walls->dr = load_image_into_struct(all, walls->dr_path);
+	walls->square = load_image_into_struct(all, walls->square_path);
+	walls->round = load_image_into_struct(all, walls->round_path);
+	all->tex.bg = load_image_into_struct(all, all->tex.bg_path);
+	all->tex.eopen = load_image_into_struct(all, all->tex.eopen_path);
+	all->tex.eclose = load_image_into_struct(all, all->tex.eclose_path);
+	all->tex.coin = load_image_into_struct(all, all->tex.coin_path);
 }

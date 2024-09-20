@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:27:01 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/19 16:51:02 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/20 12:16:24 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_window(t_all *all, t_win *win)
+void	init_window(t_all *all)
 {
 	t_map	map;
+	t_win	*win;
 
-	all->win = win;
+	win = &all->win;
 	map = all->map;
-	win->tile_size = 64;
 	win->width = win->tile_size * map.width;
 	win->height = win->tile_size * map.height;
 	if (!win->mlx)
