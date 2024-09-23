@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 16:59:39 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 15:48:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <time.h>
 
 int	terminate(t_all *all)
 {
 	free_structs(all);
 	destroy_window(all);
-	if (&all->win)
-		free(all->win.mlx);
+	free(all->win.mlx);
 	exit (0);
 }
 
@@ -45,6 +45,7 @@ static int	define_hooks(t_all *all)
 
 static void	set_default_values(t_all *all)
 {
+	srand(time(NULL));
 	set_textures_struct(all);
 	set_player_sprites_struct(all);
 	all->map.map = NULL;
@@ -65,6 +66,7 @@ int	main(int argc, char *argv[])
 	get_map(&all, argv[1]);
 	get_player(&all);
 	get_player_sprites(&all);
+	get_ennemies(&all);
 	get_textures(&all);
 	init_window(&all);
 	define_hooks(&all);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:13:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 12:27:54 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 13:08:22 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_character_correct(char c)
 {
-	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
+	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P' && c != 'X')
 	{
 		write(2, "wrong character in map: ", 24);
 		write(2, &c, 1);

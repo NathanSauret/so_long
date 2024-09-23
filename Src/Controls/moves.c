@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:54:18 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 17:05:12 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 15:38:41 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,4 @@ void	moves(int keysym, t_all *all)
 		move_left(all);
 	else if (keysym == 'd' || keysym == 0xff53)
 		move_right(all);
-	ft_printf("\e[1;1H\e[2Jmoves: %d\n", all->player.nb_move);
 }

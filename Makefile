@@ -8,10 +8,14 @@ MINILIBX_PATH =./minilibx-linux
 MINIFLAGS=-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -opengl -lm -lbsd
 MINILIBX= $(MINILIBX_PATH)/libmlx.a
 
-SRC =	Src/Controls/moves.c	\
+SRC =	Src/Controls/ennemies_turn.c	\
 		Src/Controls/on_press.c	\
+		Src/Controls/moves.c	\
+		Src/Display/display_ennemy.c	\
+		Src/Display/display_player.c	\
+		Src/Display/display_wall.c	\
 		Src/Display/display.c	\
-		Src/Display/get_wall.c	\
+		Src/Ennemies_utilities/get_ennemies.c	\
 		Src/Exit_error/delete_sprites.c	\
 		Src/Exit_error/delete_textures.c	\
 		Src/Exit_error/exit_error.c	\
@@ -28,7 +32,6 @@ SRC =	Src/Controls/moves.c	\
 		Src/Parsing/is_rectangular.c	\
 		Src/Parsing/parsing.c	\
 		Src/Player_utilities/get_player.c	\
-		Src/Player_utilities/moves.c	\
 		Src/Textures_utilities/get_player_sprites.c	\
 		Src/Textures_utilities/get_textures.c	\
 		Src/Window_utilities/destroy_window.c	\

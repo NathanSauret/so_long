@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 17:11:30 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 13:43:53 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ typedef struct s_player
 	int		nb_move;
 	int		frame;
 }	t_player;
+
+typedef struct s_ennemies
+{
+	int		nb_ennemies;
+	int		*x;
+	int		*y;
+	char	*direction;
+	int		*is_on_exit;
+	int		*is_on_coin;
+}	t_ennemies;
 
 typedef struct s_map
 {
@@ -107,13 +117,27 @@ typedef struct s_player_sprites
 	void	*r2;
 }	t_player_sprites;
 
+typedef struct s_ennemy_sprites
+{
+	char	*u_path;
+	void	*u;
+	char	*d_path;
+	void	*d;
+	char	*l_path;
+	void	*l;
+	char	*r_path;
+	void	*r;
+}	t_ennemy_sprites;
+
 typedef struct s_all
 {
 	t_map				map;
 	t_player			player;
+	t_player_sprites	ps;
+	t_ennemies			ennemies;
+	t_ennemy_sprites	es;
 	t_win				win;
 	t_textures			tex;
-	t_player_sprites	ps;
 }	t_all;
 
 // CONTROLS
@@ -123,11 +147,21 @@ void	moves(int keysym, t_all *all);
 int		on_keypress(int keysym, t_all *all);
 
 // DISPLAY
+// ennemies_turn.c
+void	ennemies_turn(t_all *all);
+// display_player.c
+void	display_player(t_all *all, int i, int j);
+// display_wall.c
+void	display_wall(t_all *all, int i, int j);
+// display_ennemi.c
+void	display_ennemy(t_all *all, int i, int j);
 // display.c
-int		display_using_pixels(t_all *all);
+void	color_tile(t_all *all, int tile_x, int tile_y, int color);
 int		display(t_all *all);
-// get_wall.c
-void	*get_wall(t_all *all, int i, int j);
+
+// ENNEMIES_UTILITIES
+// get_ennemies.c
+void	get_ennemies(t_all *all);
 
 // EXIT_ERROR
 // delete_sprites.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_exit_reachable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:16:26 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 15:06:37 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 13:10:19 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,22 @@ static int	search_for_exit(t_map *map, int i, int j)
 	if (map->map[i][j] == 'E')
 		return (1);
 	map->map[i][j] = '1';
-	if ((i - 1) >= 0 && map->map[i - 1][j] != '1')
+	if ((i - 1) >= 0 && map->map[i - 1][j] != '1' && map->map[i - 1][j] != 'X')
 	{
 		if (search_for_exit(map, i - 1, j) == 1)
 			return (1);
 	}
-	if ((i + 1) >= 0 && map->map[i + 1][j] != '1')
+	if ((i + 1) >= 0 && map->map[i + 1][j] != '1' && map->map[i + 1][j] != 'X')
 	{
 		if (search_for_exit(map, i + 1, j) == 1)
 			return (1);
 	}
-	if ((j - 1) >= 0 && map->map[i][j - 1] != '1')
+	if ((j - 1) >= 0 && map->map[i][j - 1] != '1' && map->map[i][j - 1] != 'X')
 	{
 		if (search_for_exit(map, i, j - 1) == 1)
 			return (1);
 	}
-	if ((j + 1) >= 0 && map->map[i][j + 1] != '1')
+	if ((j + 1) >= 0 && map->map[i][j + 1] != '1' && map->map[i][j + 1] != 'X')
 	{
 		if (search_for_exit(map, i, j + 1) == 1)
 			return (1);

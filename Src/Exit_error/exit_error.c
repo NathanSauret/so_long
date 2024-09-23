@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:35:05 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 15:46:30 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/23 15:08:19 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void	free_structs(t_all *all)
 		delete_sprites(all);
 	if (all->tex.bg)
 		delete_textures(all);
+	if (all->ennemies.direction)
+	{
+		free(all->ennemies.direction);
+		free(all->ennemies.x);
+		free(all->ennemies.y);
+		free(all->ennemies.is_on_exit);
+		free(all->ennemies.is_on_coin);
+	}
 }
 
 void	exit_error(int reason, t_all *all)
