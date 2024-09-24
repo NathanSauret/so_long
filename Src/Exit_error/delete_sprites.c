@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   delete_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:41:03 by nathan            #+#    #+#             */
-/*   Updated: 2024/09/20 15:43:56 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/24 15:21:54 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,12 @@ void	delete_sprites(t_all *all)
 		mlx_destroy_image(all->win.mlx, all->ps.r1);
 	if (all->ps.r2)
 		mlx_destroy_image(all->win.mlx, all->ps.r2);
+	if (all->es.u)
+		mlx_destroy_image(all->win.mlx, all->es.u);
+	if (all->es.d)
+		mlx_destroy_image(all->win.mlx, all->es.d);
+	if (all->es.l)
+		mlx_destroy_image(all->win.mlx, all->es.l);
+	if (all->es.r)
+		mlx_destroy_image(all->win.mlx, all->es.r);
 }

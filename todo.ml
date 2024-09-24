@@ -2,7 +2,8 @@
 [X] - Check if I can just send map and not copy the pointer to map
 [X] - Set round corners
 [X] - Debug the corners that start to do weird shit in the right part of the screen
-[ ] - Ennemies are destroying coins, bad bad!
-[ ] - Konami code.
+[X] - Ennemies are destroying coins, bad bad!
+[ ] - Get last ennemy frame before dying
 [ ] - Add ennemies sprites
+[ ] - Konami code
 [ ] - Add moves on screen

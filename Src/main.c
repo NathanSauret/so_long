@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/23 15:48:09 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:14:17 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	set_default_values(t_all *all)
 	srand(time(NULL));
 	set_textures_struct(all);
 	set_player_sprites_struct(all);
+	set_ennemies_sprites_struct(all);
 	all->map.map = NULL;
 	all->win.mlx = mlx_init();
 	all->win.tile_size = 64;
@@ -67,6 +68,7 @@ int	main(int argc, char *argv[])
 	get_player(&all);
 	get_player_sprites(&all);
 	get_ennemies(&all);
+	get_ennemies_sprites(&all);
 	get_textures(&all);
 	init_window(&all);
 	define_hooks(&all);

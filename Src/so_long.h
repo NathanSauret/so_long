@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/23 13:43:53 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:16:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,14 +141,16 @@ typedef struct s_all
 }	t_all;
 
 // CONTROLS
-// moves.c
-void	moves(int keysym, t_all *all);
+// ennemy_move.c
+void	ennemy_move(t_all *all, int id, int go_x, int go_y);
+// kill_or_be_killed.c
+void	kill_or_be_killed(t_all *all, int go_x, int go_y);
 // on_press.c
 int		on_keypress(int keysym, t_all *all);
+// player_move.c
+void	player_move(t_all *all, int go_x, int go_y);
 
 // DISPLAY
-// ennemies_turn.c
-void	ennemies_turn(t_all *all);
 // display_player.c
 void	display_player(t_all *all, int i, int j);
 // display_wall.c
@@ -206,11 +208,14 @@ void	parsing(t_all *all);
 void	get_player(t_all *all);
 
 // TEXTURES_UTILITIES
+// get_ennemy_sprites.c
+void	set_ennemies_sprites_struct(t_all *all);
+void	get_ennemies_sprites(t_all *all);
 // get_player_sprites.c
+void	set_player_sprites_struct(t_all *all);
 void	get_player_sprites(t_all *all);
 // get_textures.c
 void	set_textures_struct(t_all *all);
-void	set_player_sprites_struct(t_all *all);
 void	get_textures(t_all *all);
 
 // WINDOW
