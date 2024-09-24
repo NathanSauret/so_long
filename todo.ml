@@ -3,7 +3,8 @@
 [X] - Set round corners
 [X] - Debug the corners that start to do weird shit in the right part of the screen
 [X] - Ennemies are destroying coins, bad bad!
-[ ] - Get last ennemy frame before dying
+[X] - Get last ennemy frame before dying
+[X] - Add move counter to the screen
 [ ] - Add ennemies sprites
 [ ] - Konami code
 [ ] - Add moves on screen

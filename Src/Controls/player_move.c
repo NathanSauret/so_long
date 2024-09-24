@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:54:18 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:00:42 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:37:15 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	player_move(t_all *all, int go_x, int go_y)
 		replace_previous_tile(all);
 		update_new_tile(all, go_x, go_y);
 		update_player_location(all, go_x, go_y);
+		all->player.nb_move += 1;
 	}
 }

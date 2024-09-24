@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:14:17 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:34:58 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int	terminate(t_all *all)
 {
+	int	i;
+
+	i = 0;
+	while (i++ < 1000)
+			display(all);
 	free_structs(all);
 	destroy_window(all);
 	free(all->win.mlx);

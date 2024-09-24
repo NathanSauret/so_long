@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:35:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:19:28 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:38:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ void	kill_or_be_killed(t_all *all, int go_x, int go_y)
 	id = get_ennemy_id(all, go_x, go_y);
 	player_dir = all->player.direction;
 	ennemy_dir = all->ennemies.direction[id];
-	if ((player_dir == 'u' && ennemy_dir == 'd')
-		|| (player_dir == 'd' && ennemy_dir == 'u')
-		|| (player_dir == 'l' && ennemy_dir == 'r')
-		|| (player_dir == 'r' && ennemy_dir == 'l'))
-		terminate(all);
-	all->map.map[go_y][go_x] = '0';
-	all->ennemies.x[id] = -1;
-	all->ennemies.y[id] = -1;
+	if (player_dir == ennemy_dir)
+	{
+		all->map.map[go_y][go_x] = '0';
+		all->ennemies.x[id] = -1;
+		all->ennemies.y[id] = -1;
+		return ;
+	}
+	all->map.map[all->player.y][all->player.x] = '0';
+	ft_printf("Game Over\n");
+	terminate(all);
 }

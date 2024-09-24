@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:51:44 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:17:34 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:22:46 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,6 @@ void	display_ennemy(t_all *all, int i, int j)
 		write(2, "Error\n", 7);
 		terminate(all);
 	}
-	// if (all->ennemies.direction[ennemy_id] == 'u')
-	// 	color_tile(all, j, i, 0x00FF00);
-	// else if (all->ennemies.direction[ennemy_id] == 'd')
-	// 	color_tile(all, j, i, 0x0000FF);
-	// else if (all->ennemies.direction[ennemy_id] == 'l')
-	// 	color_tile(all, j, i, 0xFF00FF);
-	// else if (all->ennemies.direction[ennemy_id] == 'r')
-	// 	color_tile(all, j, i, 0xFF0000);
 	image = NULL;
 	if (all->ennemies.direction[ennemy_id] == 'u')
 		image = all->es.u;

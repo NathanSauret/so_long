@@ -6,33 +6,11 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:57:24 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/23 13:07:07 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:37:01 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-void	color_tile(t_all *all, int tile_x, int tile_y, int color)
-{
-	t_win	win;
-	int		i;
-	int		j;
-
-	win = all->win;
-	if (tile_x < 0 || tile_x > win.width || tile_y < 0 || tile_y > win.height)
-		return ;
-	i = tile_y * win.tile_size;
-	while (i < (tile_y * win.tile_size) + win.tile_size)
-	{
-		j = tile_x * win.tile_size;
-		while (j < (tile_x * win.tile_size) + win.tile_size)
-		{
-			mlx_pixel_put(win.mlx, win.win, j, i, color);
-			j++;
-		}
-		i++;
-	}
-}
 
 static void	choose_what_to_display(t_all *all, int i, int j)
 {
@@ -67,6 +45,7 @@ int	display(t_all *all)
 	t_map		map;
 	int			i;
 	int			j;
+	char		*text;
 
 	map = all->map;
 	i = 0;
@@ -80,5 +59,10 @@ int	display(t_all *all)
 		}
 		i++;
 	}
+	text = "moves:";
+	mlx_string_put(all->win.mlx, all->win.win, 10, 10, 0xFFFFFF, text);
+	text = ft_itoa(all->player.nb_move);
+	mlx_string_put(all->win.mlx, all->win.win, 75, 10, 0xFFFFFF, text);
+
 	return (1);
 }

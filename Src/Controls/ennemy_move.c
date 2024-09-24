@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:13:30 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:19:19 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:25:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,13 @@ void	ennemy_move(t_all *all, int id, int go_x, int go_y)
 	y = all->ennemies.y[id];
 	update_ennemy_direction(all, id, go_x, go_y);
 	if (all->map.map[go_y][go_x] == 'P')
+	{
+		replace_previous_tile(all, id);
+		update_new_tile(all, id, go_x, go_y);
+		update_ennemy_location(all, id, go_x, go_y);
+		ft_printf("Game Over\n");
 		terminate(all);
+	}
 	else if (go_x > 0 && go_x < all->map.width
 		&& go_y > 0 && go_y < all->map.height
 		&& all->map.map[go_y][go_x] != '1'
