@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:54:18 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 16:37:15 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 20:28:30 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,6 @@ static void	update_player_location(t_all *all, int go_x, int go_y)
 
 void	player_move(t_all *all, int go_x, int go_y)
 {
-	int	x;
-	int	y;
-
-	x = all->player.x;
-	y = all->player.y;
 	update_player_direction(all, go_x, go_y);
 	if (all->map.map[go_y][go_x] == 'X')
 		kill_or_be_killed(all, go_x, go_y);

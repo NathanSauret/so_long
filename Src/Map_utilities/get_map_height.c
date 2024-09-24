@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:15:42 by nathan            #+#    #+#             */
-/*   Updated: 2024/09/20 15:17:54 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/24 20:32:35 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	get_map_height(char *map_name, t_all *all)
 	{
 		perror(map_name);
 		close(fd);
-		exit_error(0, all);
+		exit_error(-1, all);
 	}
 	nb_lines = 0;
 	line = get_next_line(fd, 1);

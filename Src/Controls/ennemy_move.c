@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:13:30 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 16:25:09 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 20:27:46 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ static void	update_ennemy_location(t_all *all, int id, int go_x, int go_y)
 
 void	ennemy_move(t_all *all, int id, int go_x, int go_y)
 {
-	int	x;
-	int	y;
-
-	x = all->ennemies.x[id];
-	y = all->ennemies.y[id];
 	update_ennemy_direction(all, id, go_x, go_y);
 	if (all->map.map[go_y][go_x] == 'P')
 	{

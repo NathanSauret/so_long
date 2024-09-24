@@ -6,13 +6,13 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:30:31 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/20 17:11:18 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/24 20:50:20 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	*load_image_into_struct(t_all *all, char *path)
+void	*load_image_into_struct(t_all *all, char *path)
 {
 	int			tsz;
 	void		*image;

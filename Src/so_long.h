@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 15:16:09 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 20:50:33 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ void	get_ennemies_sprites(t_all *all);
 void	set_player_sprites_struct(t_all *all);
 void	get_player_sprites(t_all *all);
 // get_textures.c
+void	*load_image_into_struct(t_all *all, char *path);
 void	set_textures_struct(t_all *all);
 void	get_textures(t_all *all);
 

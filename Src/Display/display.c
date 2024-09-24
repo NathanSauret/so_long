@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:57:24 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 16:37:01 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/24 21:08:37 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int	display(t_all *all)
 	mlx_string_put(all->win.mlx, all->win.win, 10, 10, 0xFFFFFF, text);
 	text = ft_itoa(all->player.nb_move);
 	mlx_string_put(all->win.mlx, all->win.win, 75, 10, 0xFFFFFF, text);
-
+	free(text);
 	return (1);
 }

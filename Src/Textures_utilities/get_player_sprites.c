@@ -6,28 +6,11 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:29:02 by nathan            #+#    #+#             */
-/*   Updated: 2024/09/20 15:33:28 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/24 20:51:31 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-static void	*load_image_into_struct(t_all *all, char *path)
-{
-	int			tsz;
-	void		*image;
-
-	tsz = all->win.tile_size;
-	image = mlx_xpm_file_to_image(all->win.mlx, path, &tsz, &tsz);
-	if (!image)
-	{
-		write(2, "Error: Texture not found: ", 27);
-		write(2, path, ft_strlen(path));
-		write(2, "\n", 1);
-		exit_error(-1, all);
-	}
-	return (image);
-}
 
 void	set_player_sprites_struct(t_all *all)
 {
