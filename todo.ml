@@ -9,6 +9,7 @@
 [ ] - Condition to check if '\n' in the is_rectangular
 [ ] - Valgrind error when empty line anywhere in the map except at the begining
 [ ] - Add '\n' after Error instead of after the name of the error
+[ ] - Secure itoa when displaying the text
 
 ???
 [ ] - Konami code
