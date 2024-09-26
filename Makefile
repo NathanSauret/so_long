@@ -20,6 +20,7 @@ SRC =	Src/Controls/ennemy_move.c	\
 		Src/Exit_error/delete_sprites.c	\
 		Src/Exit_error/delete_textures.c	\
 		Src/Exit_error/exit_error.c	\
+		Src/Game_end/game_end.c	\
 		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
 		Src/Map_utilities/free_map.c	\

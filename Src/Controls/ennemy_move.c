@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:13:30 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 20:27:46 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:37:27 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ void	ennemy_move(t_all *all, int id, int go_x, int go_y)
 		replace_previous_tile(all, id);
 		update_new_tile(all, id, go_x, go_y);
 		update_ennemy_location(all, id, go_x, go_y);
-		ft_printf("Game Over\n");
-		terminate(all);
+		game_over(all);
 	}
 	else if (go_x > 0 && go_x < all->map.width
 		&& go_y > 0 && go_y < all->map.height

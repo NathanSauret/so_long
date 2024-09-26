@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 20:50:33 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/26 12:25:43 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,11 @@ void	delete_textures(t_all *all);
 void	free_structs(t_all *all);
 void	exit_error(int reason, t_all *all);
 
+// GAME_END
+// game_end.c
+void	are_ya_wining_son(t_all *all);
+void	game_over(t_all *all);
+
 // MAP_UTILITIES
 // display_in_terminal.c
 void	display_in_terminal(t_map map);
@@ -187,7 +192,6 @@ int		get_map_height(char *map_name, t_all *all);
 void	get_map(t_all *all, char *map_name);
 // get_nb_coins.c
 int		get_nb_coins(t_all *all);
-
 
 // PARSING
 // are_coins_reachable.c

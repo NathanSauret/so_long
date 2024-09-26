@@ -49,21 +49,21 @@ echo
 
 echo "~"
 
-chmod 000 Tester/Maps/subject.ber
+chmod 000 Maps/Tester/empty.ber
 echo
 echo "[with wrong permissions]"
-ARG='./so_long Tester/Maps/subject.ber'
+ARG='./so_long Maps/Tester/empty.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
 echo
-chmod 777 Tester/Maps/subject.ber
+chmod 777 Maps/Tester/empty.ber
 
 echo "~"
 
 echo
 echo "[with empty file]"
-ARG='./so_long Tester/Maps/empty.ber'
+ARG='./so_long Maps/Tester/empty.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -73,7 +73,7 @@ echo "~"
 
 echo
 echo "[with not rectangular map]"
-ARG='./so_long Tester/Maps/not_rectangular.ber'
+ARG='./so_long Maps/Tester/not_rectangular.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -83,7 +83,7 @@ echo "~"
 
 echo
 echo "[without player]"
-ARG='./so_long Tester/Maps/no_player.ber'
+ARG='./so_long Maps/Tester/no_player.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -93,7 +93,7 @@ echo "~"
 
 echo
 echo "[with two players]"
-ARG='./so_long Tester/Maps/two_players.ber'
+ARG='./so_long Maps/Tester/two_players.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -103,7 +103,7 @@ echo "~"
 
 echo
 echo "[without exit]"
-ARG='./so_long Tester/Maps/no_exit.ber'
+ARG='./so_long Maps/Tester/no_exit.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -113,7 +113,7 @@ echo "~"
 
 echo
 echo "[with two exits]"
-ARG='./so_long Tester/Maps/two_exits.ber'
+ARG='./so_long Maps/Tester/two_exits.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -123,7 +123,7 @@ echo "~"
 
 echo
 echo "[without coins]"
-ARG='./so_long Tester/Maps/no_coins.ber'
+ARG='./so_long Maps/Tester/no_coins.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -133,7 +133,7 @@ echo "~"
 
 echo
 echo "[with a wrong character]"
-ARG='./so_long Tester/Maps/wrong_character.ber'
+ARG='./so_long Maps/Tester/wrong_character.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -143,7 +143,7 @@ echo "~"
 
 echo
 echo "[without walls]"
-ARG='./so_long Tester/Maps/no_walls.ber'
+ARG='./so_long Maps/Tester/no_walls.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -153,7 +153,7 @@ echo "~"
 
 echo
 echo "[exit not reachable]"
-ARG='./so_long Tester/Maps/exit_not_reachable.ber'
+ARG='./so_long Maps/Tester/exit_not_reachable.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
@@ -163,7 +163,7 @@ echo "~"
 
 echo
 echo "[with a not reachable coin]"
-ARG='./so_long Tester/Maps/coin_not_reachable.ber'
+ARG='./so_long Maps/Tester/coin_not_reachable.ber'
 echo command: $ARG; eval $ARG
 valgrind $ARG > tmp 2>&1
 cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"

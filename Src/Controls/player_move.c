@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:54:18 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 20:28:30 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/26 12:25:09 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static void	update_new_tile(t_all *all, int go_x, int go_y)
 	else if (all->map.map[go_y][go_x] == 'C')
 		all->map.nb_coins -= 1;
 	all->map.map[go_y][go_x] = 'P';
-
 }
 
 static void	update_player_location(t_all *all, int go_x, int go_y)

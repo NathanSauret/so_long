@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 21:09:54 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/26 12:34:58 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int	terminate(t_all *all)
 static int	loop(t_all *all)
 {
 	if (all->player.is_on_exit && all->map.nb_coins == 0)
-	{
-		ft_printf("\e[1;1H\e[2JGreat Job!\n");
-		terminate(all);
-	}
+		are_ya_wining_son(all);
 	return (0);
 }
 
@@ -50,13 +47,14 @@ static void	set_default_values(t_all *all)
 	set_player_sprites_struct(all);
 	set_ennemies_sprites_struct(all);
 	all->map.map = NULL;
+	all->ennemies.direction = NULL;
 	all->win.mlx = mlx_init();
 	all->win.tile_size = 64;
 }
 
 int	main(int argc, char *argv[])
 {
-	t_all				all;
+	t_all	all;
 
 	if (argc != 2)
 	{

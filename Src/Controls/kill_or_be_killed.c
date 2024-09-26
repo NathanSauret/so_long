@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:35:36 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 16:38:09 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/26 11:31:34 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ void	kill_or_be_killed(t_all *all, int go_x, int go_y)
 		return ;
 	}
 	all->map.map[all->player.y][all->player.x] = '0';
-	ft_printf("Game Over\n");
-	terminate(all);
+	game_over(all);
 }
