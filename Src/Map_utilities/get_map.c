@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/27 17:51:46 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 18:00:20 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ static char	**get_the_map(t_all *all, char *map_name, int height)
 	fd = open(map_name, O_RDONLY);
 	if (!fd)
 		exit_error(0, NULL);
-	the_map = malloc(sizeof(char *) * height);
+	the_map = ft_calloc(height, sizeof(char *));
 	if (!the_map)
 		exit_error(0, NULL);
-	line = NULL;
 	i = 0;
 	while (i < height)
 	{
@@ -45,7 +44,8 @@ static char	**get_the_map(t_all *all, char *map_name, int height)
 		{
 			free_tabstr(the_map);
 			get_next_line(fd, 0);
-			return (close(fd), exit_error(1, all), the_map);
+			close(fd);
+			exit_error(1, all);
 		}
 		the_map[i++] = line;
 	}
