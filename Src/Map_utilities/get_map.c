@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/27 16:09:44 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 17:16:34 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static char	**get_the_map(t_all *all, char *map_name, int height)
 		line = get_next_line(fd, 1);
 		if (!line)
 		{
+			free(the_map);
+			get_next_line(fd, 0);
 			close(fd);
 			exit_error(1, all);
 		}
 		the_map[i++] = line;
 	}
-	get_next_line(fd, 0);
-	close(fd);
-	return (the_map);
+	return (get_next_line(fd, 0), close(fd), the_map);
 }
 
 static int	get_map_width(t_all *all, char *map_name)
