@@ -8,8 +8,8 @@
 [X] - Add ennemies sprites
 [X] - Valgrind error when empty line anywhere in the map except at the begining
 [X] - Add '\n' after Error instead of after the name of the error
-[X] - Secure gnl
 [X] - Secure itoa when displaying the text
+[X] - Secure gnl
 
 ???
 [ ] - Konami code
