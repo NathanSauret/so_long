@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 17:21:43 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/27 17:47:51 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 18:06:35 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_tabstr(char **tab)
 {
 	int	i;
 
-	if (!tab || !tab[0])
+	if (!tab)
 		return ;
 	i = 0;
 	while (tab[i])
