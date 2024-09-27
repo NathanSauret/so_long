@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:35:05 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/26 12:35:41 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 16:19:40 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	free_structs(t_all *all)
 {
 	if (all->map.map)
 		free_map(&all->map);
-	if (all->ps.u1)
-		delete_sprites(all);
-	if (all->tex.bg)
-		delete_textures(all);
+	delete_sprites(all);
+	delete_textures(all);
 	if (all->ennemies.direction)
 	{
 		free(all->ennemies.direction);

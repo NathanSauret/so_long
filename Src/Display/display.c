@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:57:24 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 21:08:37 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/27 16:14:00 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	display(t_all *all)
 	text = "moves:";
 	mlx_string_put(all->win.mlx, all->win.win, 10, 10, 0xFFFFFF, text);
 	text = ft_itoa(all->player.nb_move);
+	if (!text)
+		exit_error(0, all);
 	mlx_string_put(all->win.mlx, all->win.win, 75, 10, 0xFFFFFF, text);
 	free(text);
 	return (1);

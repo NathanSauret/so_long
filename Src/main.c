@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:59:06 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/26 12:34:58 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 16:21:00 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		write(2, "Error: The program needs one argument: map file\n", 49);
+		write(2, "Error:\nThe program needs one argument: map file\n", 49);
 		exit(1);
 	}
 	set_default_values(&all);

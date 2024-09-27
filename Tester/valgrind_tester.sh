@@ -62,6 +62,16 @@ chmod 777 Maps/Tester/empty.ber
 echo "~"
 
 echo
+echo "[with empty line in the middle]"
+ARG='./so_long Maps/Tester/empty_line_in_middle.ber'
+echo command: $ARG; eval $ARG
+valgrind $ARG > tmp 2>&1
+cat tmp | grep -a "ERROR"; cat tmp | grep -a "no leaks"
+echo
+
+echo "~"
+
+echo
 echo "[with empty file]"
 ARG='./so_long Maps/Tester/empty.ber'
 echo command: $ARG; eval $ARG

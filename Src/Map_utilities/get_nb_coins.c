@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_nb_coins.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 12:31:24 by nathan            #+#    #+#             */
-/*   Updated: 2024/09/20 12:35:55 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/27 15:33:38 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	get_nb_coins(t_all *all)
 	while (i < all->map.height)
 	{
 		j = 0;
-		while (j < all->map.width)
+		while (j < all->map.width && all->map.map[i][j])
 		{
 			if (all->map.map[i][j] == 'C')
 				nb_coins++;

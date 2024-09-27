@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:28:49 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/26 12:25:16 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 16:25:56 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static void	*get_endgame_image(t_all *all, char *path)
 	image = mlx_xpm_file_to_image(all->win.mlx, path, &size, &size);
 	if (!image)
 	{
-		write(2, "Error: Texture not found: ", 27);
+		write(2, "Error:\nTexture not found: ", 27);
 		write(2, path, ft_strlen(path));
 		write(2, "\n", 1);
-		exit_error(-1, all);
+		terminate(all);
 	}
 	return (image);
 }

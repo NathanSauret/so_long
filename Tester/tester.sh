@@ -60,6 +60,14 @@ echo
 echo "~"
 
 echo
+echo "[with empty line in the middle]"
+ARG='./so_long Maps/Tester/empty_line_in_middle.ber'
+echo command: $ARG; eval $ARG
+echo
+
+echo "~"
+
+echo
 echo "[with not rectangular map]"
 ARG='./so_long Maps/Tester/not_rectangular.ber'
 echo command: $ARG; eval $ARG

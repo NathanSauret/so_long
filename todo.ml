@@ -6,10 +6,10 @@
 [X] - Add move counter to the screen
 [X] - Get last ennemy frame before dying
 [X] - Add ennemies sprites
-[ ] - Condition to check if '\n' in the is_rectangular
-[ ] - Valgrind error when empty line anywhere in the map except at the begining
-[ ] - Add '\n' after Error instead of after the name of the error
-[ ] - Secure itoa when displaying the text
+[X] - Valgrind error when empty line anywhere in the map except at the begining
+[X] - Add '\n' after Error instead of after the name of the error
+[X] - Secure gnl
+[X] - Secure itoa when displaying the text
 
 ???
 [ ] - Konami code

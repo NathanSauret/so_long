@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:30:31 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/24 20:50:20 by nathan           ###   ########.fr       */
+/*   Updated: 2024/09/27 16:16:50 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*load_image_into_struct(t_all *all, char *path)
 	image = mlx_xpm_file_to_image(all->win.mlx, path, &tsz, &tsz);
 	if (!image)
 	{
-		write(2, "Error: Texture not found: ", 27);
+		write(2, "Error:\nTexture not found: ", 27);
 		write(2, path, ft_strlen(path));
 		write(2, "\n", 1);
 		exit_error(-1, all);
