@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:17:14 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/26 12:25:43 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 17:25:29 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,8 @@ void	display_in_terminal(t_map map);
 void	dup_map(t_map map, t_map *map_copy);
 // free_map.c
 void	free_map(t_map *map);
+// free_tabstr.c
+void	free_tabstr(char **tab);
 // get_map_height.c
 int		get_map_height(char *map_name, t_all *all);
 // get_map.c

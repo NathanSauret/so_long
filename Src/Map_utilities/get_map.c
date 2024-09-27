@@ -6,7 +6,7 @@
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:10:37 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/27 17:17:08 by nsauret          ###   ########.fr       */
+/*   Updated: 2024/09/27 17:24:28 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	**get_the_map(t_all *all, char *map_name, int height)
 		line = get_next_line(fd, 1);
 		if (!line)
 		{
-			free(the_map);
+			free_tabstr(the_map);
 			get_next_line(fd, 0);
 			close(fd);
 			exit_error(1, all);

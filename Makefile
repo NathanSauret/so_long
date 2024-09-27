@@ -24,6 +24,7 @@ SRC =	Src/Controls/ennemy_move.c	\
 		Src/Map_utilities/display_in_terminal.c	\
 		Src/Map_utilities/dup_map.c	\
 		Src/Map_utilities/free_map.c	\
+		Src/Map_utilities/free_tabstr.c	\
 		Src/Map_utilities/get_map_height.c	\
 		Src/Map_utilities/get_map.c	\
 		Src/Map_utilities/get_nb_coins.c	\

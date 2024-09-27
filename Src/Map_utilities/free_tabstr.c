@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   free_tabstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsauret <nsauret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 18:15:55 by nsauret           #+#    #+#             */
-/*   Updated: 2024/09/27 17:20:55 by nsauret          ###   ########.fr       */
+/*   Created: 2024/09/27 17:21:43 by nsauret           #+#    #+#             */
+/*   Updated: 2024/09/27 17:27:12 by nsauret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	free_map(t_map *map)
+void	free_tabstr(char **tab)
 {
 	int	i;
 
+	if (!tab || !tab[0])
+		return ;
 	i = 0;
-	while (i < map->height)
-		free(map->map[i++]);
-	free(map->map);
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }
